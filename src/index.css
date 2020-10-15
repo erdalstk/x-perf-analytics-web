@@ -47,6 +47,9 @@ body {
   -webkit-filter: blur(2px);
   z-index: 1;
 }
+.profile-card p {
+  z-index: 100;
+}
 .custom-tooltip {
   background-color: rgba(0,0,0,0.7);
   border-radius: 10px;
