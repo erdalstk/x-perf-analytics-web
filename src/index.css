@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  padding-top: 120px;
+}
+
+.content {
+  padding-top: 60px;
+}
+
+.chartContainer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+}
+.avatar {
+  height: 150px;
+  z-index: 10;
+}
+.profile-card {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+.profile-card::before {
+  background-image: url('./assets/bg.jpg');
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  z-index: 1;
+}
+.custom-tooltip {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color: #fff;
+  padding: 6px 12px;
+  
+}
+.custom-tooltip h3 {
+  font-weight: bold;
+}
+.custom-tooltip h3, .custom-tooltip p {
+  font-size: 12px;
+  margin:0;
+}
