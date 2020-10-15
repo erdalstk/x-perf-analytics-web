@@ -24,18 +24,18 @@ function Home() {
   return (
     <>
       <Row>
-        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
+        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
           <LineChart data={data} lineDataKey="ttfb" xAxisDatKey="datetime"  labelName="Time To First Byte"/>
         </Col>
-        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
+        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
           <LineChart data={data} lineDataKey="fcp" xAxisDatKey="datetime" labelName="First Contentful Paint"/>
         </Col>
       </Row>
       <Row>
-        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
+        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
           <LineChart data={data} lineDataKey="dom" xAxisDatKey="datetime" labelName="DOM Load"/>
         </Col>
-        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
+        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
           <LineChart data={data} lineDataKey="window" xAxisDatKey="datetime" labelName="Window Load"/>
         </Col>
       </Row>
