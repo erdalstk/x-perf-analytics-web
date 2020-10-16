@@ -9,7 +9,8 @@ function Home() {
     "loadtimes",
     () =>
       fetch(
-        "https://x-perf-analytics-api.herokuapp.com/loadtimes"
+        // "https://x-perf-analytics-api.herokuapp.com/loadtimes"
+        "http://localhost:4000/loadtimes"
       ).then((res) => res.json()),
     {
       refetchInterval: false,
@@ -21,26 +22,50 @@ function Home() {
 
   if (error) return "An error has occurred: " + error.message;
 
-  return (
-    <>
-      <Row>
-        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-          <LineChart data={data} lineDataKey="ttfb" xAxisDatKey="datetime"  labelName="Time To First Byte"/>
-        </Col>
-        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-          <LineChart data={data} lineDataKey="fcp" xAxisDatKey="datetime" labelName="First Contentful Paint"/>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-          <LineChart data={data} lineDataKey="dom" xAxisDatKey="datetime" labelName="DOM Load"/>
-        </Col>
-        <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-          <LineChart data={data} lineDataKey="window" xAxisDatKey="datetime" labelName="Window Load"/>
-        </Col>
-      </Row>
-    </>
-  );
+  if (data.length === 0) {
+    return <p>No Data</p>;
+  } else if (data.length > 0) {
+    return (
+      <>
+        <Row>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+            <LineChart
+              data={data}
+              lineDataKey="ttfb"
+              xAxisDatKey="datetime"
+              labelName="Time To First Byte"
+            />
+          </Col>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+            <LineChart
+              data={data}
+              lineDataKey="fcp"
+              xAxisDatKey="datetime"
+              labelName="First Contentful Paint"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+            <LineChart
+              data={data}
+              lineDataKey="dom"
+              xAxisDatKey="datetime"
+              labelName="DOM Load"
+            />
+          </Col>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+            <LineChart
+              data={data}
+              lineDataKey="window"
+              xAxisDatKey="datetime"
+              labelName="Window Load"
+            />
+          </Col>
+        </Row>
+      </>
+    );
+  }
 }
 
 export default Home;
