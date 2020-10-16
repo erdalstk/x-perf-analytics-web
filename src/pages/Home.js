@@ -8,9 +8,9 @@ function Home() {
   const { isLoading, error, data } = useQuery(
     "loadtimes",
     () =>
-      fetch(
-        "https://x-perf-analytics-api.herokuapp.com/loadtimes"
-      ).then((res) => res.json()),
+      fetch("https://x-perf-analytics-api.herokuapp.com/loadtimes", {
+        method: "POST",
+      }).then((res) => res.json()),
     {
       refetchInterval: false,
       refetchIntervalInBackground: false,
