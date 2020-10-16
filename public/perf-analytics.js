@@ -8,7 +8,7 @@ const post = async (body) => {
     bodyParam = JSON.stringify(body);
   }
 
-  return await fetch("https://x-perf-analytics-api.herokuapp.com/loadtimes", {
+  return await fetch("https://x-perf-analytics-api.herokuapp.com/time", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: bodyParam,
