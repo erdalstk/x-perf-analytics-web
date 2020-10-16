@@ -8,8 +8,7 @@ const post = async (body) => {
     bodyParam = JSON.stringify(body);
   }
 
-  //return await fetch("https://x-perf-analytics-api.herokuapp.com/loadtimes", {
-  return await fetch("http://localhost:4000/loadtimes", {
+  return await fetch("https://x-perf-analytics-api.herokuapp.com/loadtimes", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: bodyParam,
@@ -65,7 +64,7 @@ const returnResponse = async (r) => {
 
     let postTimeout;
     postTimeout = setTimeout(function () {
-      // post(perfData);
+      post(perfData);
       clearTimeout(postTimeout);
     }, 1000);
   }
