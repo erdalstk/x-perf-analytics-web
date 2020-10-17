@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-export default function navbar(props) {
+export default function NavBar(props) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
       <Navbar.Brand href="#home">PerfAnalytics </Navbar.Brand>
