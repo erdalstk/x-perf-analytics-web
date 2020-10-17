@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Routes from "./constants/routes";
-import NavBar from "./components/NavBar";
+import Navigation from "./components/Navigation";
 
 const queryCache = new QueryCache();
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <div className="app">
       <ReactQueryCacheProvider queryCache={queryCache}>
         <Router>
-          <NavBar />
+          <Navigation />
           <Container>
             <Switch>
               {Routes.map((route, index) => (
