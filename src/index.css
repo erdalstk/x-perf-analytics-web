@@ -1,20 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app {
-  padding-top: 120px;
-}
+.app { padding-top: 90px; }
+.content {padding-top: 60px;}
 
-.content {
-  padding-top: 60px;
-}
-
+/* 
+* Component : Line Chart 
+*/
 .chartContainer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -24,6 +22,59 @@ body {
   height: 300px;
   background-color: #fff;
 }
+.custom-tooltip {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  color: #fff;
+  padding: 6px 12px;
+}
+.custom-tooltip h3 {
+  font-weight: bold;
+}
+.custom-tooltip h3,
+.custom-tooltip p {
+  font-size: 12px;
+  margin: 0;
+}
+.legend {
+  background-color: #dde8f5;
+  border-radius: 6px;
+  color: #72a5dc;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+}
+
+
+
+
+/* 
+* Component : No Data
+*/
+.noData {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 300px);
+  flex-direction: column;
+  color: #4a76f4;
+  font-weight: 400;
+}
+.noData img {
+  height: 300px;
+}
+
+/* 
+* Component : Toggle Button Group
+*/
+.toggleButtonGroup {
+  margin-bottom: 10px;
+}
+
+/* 
+* Page : About
+*/
 .avatar {
   height: 150px;
   z-index: 10;
@@ -38,8 +89,8 @@ body {
   position: relative;
 }
 .profile-card::before {
-  background-image: url('./assets/bg.jpg');
-  content: '';
+  background-image: url("./assets/bg.jpg");
+  content: "";
   position: absolute;
   height: 100%;
   width: 100%;
@@ -49,18 +100,4 @@ body {
 }
 .profile-card p {
   z-index: 100;
-}
-.custom-tooltip {
-  background-color: rgba(0,0,0,0.7);
-  border-radius: 10px;
-  color: #fff;
-  padding: 6px 12px;
-  
-}
-.custom-tooltip h3 {
-  font-weight: bold;
-}
-.custom-tooltip h3, .custom-tooltip p {
-  font-size: 12px;
-  margin:0;
 }

@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Routes from "./constants/routes";
-import NavBar from "./components/navbar";
+import NavBar from "./components/NavBar";
 
 const queryCache = new QueryCache();
 function App() {

@@ -30,7 +30,6 @@ const formatDate = (date) => {
 };
 
 const CustomTooltip = ({ active, payload, label, longLabelName }) => {
-  console.log("payload", payload);
   if (active) {
     return (
       <div className="custom-tooltip">
@@ -46,8 +45,15 @@ const CustomTooltip = ({ active, payload, label, longLabelName }) => {
   return null;
 };
 
+const CustomLegend = (props) => {
+const { label } = props;
+  return (
+    <h5 className="legend">{label}</h5>
+  );
+}
+
 const lineChart = (props) => {
-  const { data, lineDataKey, xAxisDatKey, labelName } = props;
+  const { data, lineDataKey, xAxisDataKey, labelName } = props;
 
   return (
     <div className="chartContainer">
@@ -64,14 +70,14 @@ const lineChart = (props) => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey={xAxisDatKey} hide />
+          <XAxis dataKey={xAxisDataKey} hide />
           <YAxis />
           <Tooltip content={<CustomTooltip longLabelName={labelName} />} />
-          <Legend />
+        <Legend  verticalAlign="top" content={<CustomLegend label={labelName}/>} layout='horizontal'/>
           <Line
             type="monotone"
             dataKey={lineDataKey}
-            stroke="#8884d8"
+            stroke="#007bff"
             activeDot={{ r: 8 }}
           />
         </LineChart>

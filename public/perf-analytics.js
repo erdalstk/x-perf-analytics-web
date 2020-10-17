@@ -1,6 +1,5 @@
 // Post
 const post = async (body) => {
-  console.log("DATA SEND", body);
   let bodyParam = null;
   const headers = {};
 
@@ -37,30 +36,24 @@ const returnResponse = async (r) => {
   const perfData = {};
   if ("PerformanceObserver" in window) {
     detectSupport(["navigation", "paint", "mark", "measure"]);
-
-    // Time To First Byte
+    
     let navigation_observer = new PerformanceObserver(function (list, obj) {
-      const ttfb_metrics = list.getEntriesByType("navigation")[0];
+      const navigation_metrics = list.getEntriesByType("navigation")[0];
+      const paint_metrics = list.getEntriesByType("paint")[1];
 
-      const ttfb = ttfb_metrics?.responseStart - ttfb_metrics?.startTime;
-      const domLoad = ttfb_metrics?.domContentLoadedEventEnd - ttfb_metrics?.startTime;
-      const windowLoad = ttfb_metrics?.domComplete;
+      const fcp = paint_metrics?.startTime;
+      const ttfb = navigation_metrics?.responseStart - navigation_metrics?.startTime;
+      const domLoad = navigation_metrics?.domContentLoadedEventEnd - navigation_metrics?.startTime;
+      const windowLoad = navigation_metrics?.domComplete;
 
       !!ttfb ? perfData.ttfb = ttfb : null;
+      !!fcp ? perfData.fcp = fcp : null;
       !!domLoad ? perfData.dom = domLoad : null;
       !!windowLoad ? perfData.window = windowLoad : null;
     });
     navigation_observer.observe({
-      entryTypes: ["navigation", "mark", "measure"],
+      entryTypes: ["navigation", "paint", "mark", "measure"],
     });
-
-    // First Contentful Paint
-    let paint_observer = new PerformanceObserver(function (list, obj) {
-      const fcp = list.getEntriesByName("first-contentful-paint")[0]?.startTime;
-
-      !!fcp ? perfData.fcp = fcp : null;
-    });
-    paint_observer.observe({ entryTypes: ["paint", "mark", "measure"] });
 
     let postTimeout;
     postTimeout = setTimeout(function () {
@@ -70,12 +63,10 @@ const returnResponse = async (r) => {
   }
 })();
 
-// Know when the entry types we would like to use are not supported.
 // Taken From https://www.w3.org/
 function detectSupport(entryTypes) {
   for (const entryType of entryTypes) {
     if (!PerformanceObserver.supportedEntryTypes.includes(entryType)) {
-      // Indicate to client-side analytics that |entryType| is not supported.
       console.log(`Client side analytics For ${entryType} is not supported`);
     }
   }
