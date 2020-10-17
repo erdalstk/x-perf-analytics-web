@@ -9,8 +9,7 @@ const useLoadtimes = (useLoadtimeQueryData) => {
     `loadtimes_${useLoadtimeQueryData}`,
     async () => {
       const response = await fetch(
-        // "https://x-perf-analytics-api.herokuapp.com/loadtimes",
-        "http://localhost:4000/loadtimes",
+        "https://x-perf-analytics-api.herokuapp.com/loadtimes",
         {
           method: "POST",
           body: !!useLoadtimeQueryData
