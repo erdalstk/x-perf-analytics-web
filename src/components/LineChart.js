@@ -21,7 +21,7 @@ const formatDate = (date) => {
     month: "long",
     day: "numeric",
   };
-  const formattedDate = new Date(date).toLocaleDateString(
+  const formattedDate = new Date(date).toLocaleString(
     formatLocale,
     options
   );
